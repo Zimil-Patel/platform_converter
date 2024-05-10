@@ -22,7 +22,7 @@ class AdaptiveChatListTile extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(left: 12.0),
                 child: CircleAvatar(
-                  radius: 24,
+                  radius: 30,
                   // backgroundColor: primaryGreen.withOpacity(0.2),
                   child: FlutterLogo(),
                 ),
@@ -40,11 +40,16 @@ class AdaptiveChatListTile extends StatelessWidget {
                     },
 
                     // TITLE - CHAT PERSON NAME
-                    title: const Text('Jash24'),
+                    title: Text(
+                      'Jash24',
+                      style: TextStyle(
+                        fontSize: height * 0.020,
+                      ),
+                    ),
 
                     // SUBTITLE - CHAT MESSAGE
                     subtitle: const Text(
-                        maxLines: 2,
+                        maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         'You use a default timer for disappearing messages in new chats. New messages will dis...'),
 
@@ -56,7 +61,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                         Text(
                           '19/02/23',
                           style: TextStyle(
-                            fontSize: height * 0.016,
+                            fontSize: height * 0.015,
                           ),
                         ),
                         const SizedBox(
@@ -78,7 +83,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                             Text(
                               '00:00',
                               style: TextStyle(
-                                fontSize: height * 0.016,
+                                fontSize: height * 0.015,
                               ),
                             ),
                           ],
@@ -98,7 +103,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(left: 12.0),
                     child: CircleAvatar(
-                      radius: 24,
+                      radius: 30,
                       // backgroundColor: primaryGreen.withOpacity(0.2),
                       child: FlutterLogo(),
                     ),
@@ -110,18 +115,28 @@ class AdaptiveChatListTile extends StatelessWidget {
                       onTap: () {
                         showCupertinoModalPopup(
                           context: context,
-                          builder: (context) => const AdaptiveBottomActionSheet(),
+                          builder: (context) =>
+                              const AdaptiveBottomActionSheet(),
                         );
                       },
 
                       // TITLE - PERSON NAME
-                      title: const Text('Jash24'),
+                      title: Text(
+                        'Jash24',
+                        style: TextStyle(
+                          fontSize: height * 0.020,
+                        ),
+                      ),
 
                       // SUBTITLE - CHAT MESSAGE
-                      subtitle: const Text(
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          'You use a default timer for disappearing messages in new chats. New messages will dis...'),
+                      subtitle: Text(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        'You use a default timer for disappearing messages in new chats. New messages will dis...',
+                        style: TextStyle(
+                          fontSize: height * 0.016,
+                        ),
+                      ),
 
                       // DATE AND TIME
                       trailing: Padding(
@@ -133,7 +148,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                             Text(
                               '19/02/23',
                               style: TextStyle(
-                                fontSize: height * 0.016,
+                                fontSize: height * 0.015,
                               ),
                             ),
                             const SizedBox(
@@ -145,7 +160,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                                 Transform.rotate(
                                   angle: 120,
                                   child: Icon(
-                                    size: height * 0.021,
+                                    size: height * 0.020,
                                     CupertinoIcons.pin_fill,
                                   ),
                                 ),
@@ -155,7 +170,7 @@ class AdaptiveChatListTile extends StatelessWidget {
                                 Text(
                                   '00:00',
                                   style: TextStyle(
-                                    fontSize: height * 0.016,
+                                    fontSize: height * 0.015,
                                   ),
                                 ),
                               ],
