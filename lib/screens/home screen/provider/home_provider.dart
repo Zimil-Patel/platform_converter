@@ -41,7 +41,7 @@ class HomeProvider extends ChangeNotifier{
   // 5. TO CHANGE TAB INDEX
   toggleTabIndex(int index){
     tabIndex = index;
-    notifyListeners();
+    // notifyListeners();
   }
 
   HomeProvider(){

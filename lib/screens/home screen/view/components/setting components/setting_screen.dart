@@ -7,9 +7,8 @@ import 'package:platform_converter/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 class SettingTab extends StatelessWidget {
-  const SettingTab({super.key, required this.themeProviderTrue});
+  const SettingTab({super.key});
 
-  final ThemeProvider themeProviderTrue;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class SettingTab extends StatelessWidget {
         // PROFILE EDIT LIST TILE
         AdaptiveLisTile(
           title: 'Profile',
-          subTitle: 'Change Theme',
+          subTitle: 'Update Profile Data',
           leading: const Icon(CupertinoIcons.person),
           trailing: AdaptiveSwitch(
             value: Provider.of<HomeProvider>(context, listen: true)
@@ -30,7 +29,7 @@ class SettingTab extends StatelessWidget {
         ),
 
         // PROFILE EDIT SECTION
-        ProfileEditSection(themeProviderTrue: themeProviderTrue),
+        const ProfileEditSection(),
 
         // THEME CHANGE LIST TILE
         AdaptiveLisTile(

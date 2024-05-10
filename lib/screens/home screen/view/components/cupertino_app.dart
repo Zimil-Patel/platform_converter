@@ -2,29 +2,27 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_converter/adaptive%20widgets/adaptive_switch.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
-import 'package:platform_converter/screens/home%20screen/view/components/setting_screen.dart';
+import 'package:platform_converter/screens/home%20screen/view/components/calls%20components/calls_screen.dart';
+import 'package:platform_converter/screens/home%20screen/view/components/chats%20components/chats_screen.dart';
+import 'package:platform_converter/screens/home%20screen/view/components/new%20contact%20components/new_contact_screen.dart';
+import 'package:platform_converter/screens/home%20screen/view/components/setting%20components/setting_screen.dart';
 import 'package:platform_converter/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../adaptive widgets/adaptive_list_tile.dart';
-import '../../../../utils/constant.dart';
 
 class IosPlatformApp extends StatelessWidget {
   const IosPlatformApp({
     super.key,
-    required this.themeProviderTrue,
-    required this.homeProviderTrue,
-    required this.homeProviderFalse,
-    required this.themeProviderFalse,
   });
-
-  final ThemeProvider themeProviderTrue;
-  final ThemeProvider themeProviderFalse;
-  final HomeProvider homeProviderTrue;
-  final HomeProvider homeProviderFalse;
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProviderTrue =
+        Provider.of<ThemeProvider>(context, listen: true);
+    HomeProvider homeProviderTrue =
+        Provider.of<HomeProvider>(context, listen: true);
+    HomeProvider homeProviderFalse =
+        Provider.of<HomeProvider>(context, listen: true);
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
       theme: CupertinoThemeData(
@@ -45,6 +43,7 @@ class IosPlatformApp extends StatelessWidget {
               EdgeInsets.only(top: MediaQuery.of(context).padding.top + 50),
           child: CupertinoTabScaffold(
               tabBar: CupertinoTabBar(
+                onTap: (value) => homeProviderFalse.toggleTabIndex(value),
                 currentIndex: homeProviderTrue.tabIndex,
                 items: const [
                   BottomNavigationBarItem(
@@ -86,21 +85,43 @@ class IosPlatformApp extends StatelessWidget {
                 ],
               ),
               tabBuilder: (context, index) {
-                  homeProviderFalse.toggleTabIndex(index);
-                if(index == 0){
+                if (index == 0) {
                   // CONTACT ADD TAB
-                  return Container(color: Colors.pinkAccent,);
-                } else if(index == 1){
+                  return const CustomScrollView(
+                    slivers: [
+                      SliverFillRemaining(
+                        child: NewContactTab(),
+                      ),
+                    ],
+                  );
+                } else if (index == 1) {
                   // CHATS TAB
-                  return Container(color: Colors.purple,);
-                } else if(index == 2){
+                  return const CustomScrollView(
+                    slivers: [
+                      SliverFillRemaining(
+                        child: ChatsTab(),
+                      ),
+                    ],
+                  );
+                } else if (index == 2) {
                   // CALLS TAB
-                  return Container(color: Colors.blueGrey,);
+                  return const CustomScrollView(
+                    slivers: [
+                      SliverFillRemaining(
+                        child: CallsTab(),
+                      ),
+                    ],
+                  );
                 } else {
                   // SETTING TAB
-                  return SettingTab(themeProviderTrue: themeProviderTrue,);
+                  return const CustomScrollView(
+                    slivers: [
+                      SliverFillRemaining(
+                        child: SettingTab(),
+                      ),
+                    ],
+                  );
                 }
-
               }),
         ),
       ),
