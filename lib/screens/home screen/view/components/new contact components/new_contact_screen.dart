@@ -77,7 +77,7 @@ class NewContactTab extends StatelessWidget {
 
 // CUPERTINO SELECT TIME
 Future<void> _selectTime(BuildContext context) async {
-  Duration? pickedDuration = await showCupertinoModalPopup<Duration>(
+  TimeOfDay? pickedTime = await showCupertinoModalPopup(
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -93,7 +93,7 @@ Future<void> _selectTime(BuildContext context) async {
       );
     },
   );
-  if (pickedDuration != null) {}
+  if (pickedTime != null) {}
 }
 
 // CUPERTINO SELECT DATE
