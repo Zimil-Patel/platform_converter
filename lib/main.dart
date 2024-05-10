@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:platform_converter/screens/home%20screen/provider/contact_provider.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
 import 'package:platform_converter/screens/home%20screen/view/home_screen.dart';
 import 'package:platform_converter/theme/theme_provider.dart';
@@ -9,6 +10,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeProvider(),),
         ChangeNotifierProvider(create: (context) => HomeProvider(),),
+        ChangeNotifierProvider(create: (context) => ContactProvider(),),
       ],
       child: const PlatformConverterApp()));
 }

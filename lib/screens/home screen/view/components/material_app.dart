@@ -64,12 +64,15 @@ class AndroidPlatformApp extends StatelessWidget {
           ),
           body: const TabBarView(
             children: [
+              // NEW CONTACT TAB
               SingleChildScrollView(
                 child: NewContactTab(),
               ),
+              // CHATS TAB
               SingleChildScrollView(
                 child: ChatsTab(),
               ),
+              //CALLS TAB
               SingleChildScrollView(
                 child: CallsTab(),
               ),

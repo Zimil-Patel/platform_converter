@@ -1,10 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class ContactModel {
   String name, message;
   String number;
-  XFile contactImg;
+  File contactImg;
   DateTime dateTime;
   TimeOfDay timeOfDay;
 

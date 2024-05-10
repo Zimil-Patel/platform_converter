@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_converter/adaptive%20widgets/adaptive_bottom_action_sheet_photo_option.dart';
+import 'package:platform_converter/screens/home%20screen/provider/contact_provider.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
 import 'package:platform_converter/utils/constant.dart';
+import 'package:provider/provider.dart';
 
 class AddContactPhoto extends StatelessWidget {
   const AddContactPhoto({
@@ -13,11 +16,25 @@ class AddContactPhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ContactProvider contactProviderTrue =
+        Provider.of<ContactProvider>(context, listen: true);
     return Padding(
       padding: const EdgeInsets.all(defaultPadding),
       child: Center(
         child: CupertinoButton(
-          onPressed: () {},
+          onPressed: () {
+            homeProviderTrue.getPlatformMode()
+                ? showCupertinoModalPopup(
+                    context: context,
+                    builder: (context) =>
+                        const AdaptiveBottomActionSheetPhotoOptions(),
+                  )
+                : showModalBottomSheet(
+                    context: context,
+                    builder: (context) =>
+                        const AdaptiveBottomActionSheetPhotoOptions(),
+                  );
+          },
           padding: EdgeInsets.zero,
           child: Column(
             children: [
@@ -29,14 +46,39 @@ class AddContactPhoto extends StatelessWidget {
                     : Theme.of(context).colorScheme.inversePrimary,
                 child: homeProviderTrue.getPlatformMode()
                     ? Container(
-                  margin: const EdgeInsets.all(20),
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage('assets/person.png'),
-                      )),
-                )
-                    : const Icon(Icons.add_a_photo_outlined),
+                        margin: EdgeInsets.all(
+                            contactProviderTrue.screenModel.image != null
+                                ? 0
+                                : 20),
+                        decoration: contactProviderTrue.screenModel.image !=
+                                null
+                            ? BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: FileImage(
+                                      contactProviderTrue.screenModel.image!),
+                                ),
+                              )
+                            : const BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage('assets/person.png'),
+                                ),
+                              ),
+                      )
+                    : contactProviderTrue.screenModel.image != null
+                        ? Container(
+                            decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                  contactProviderTrue.screenModel.image!),
+                            ),
+                          ))
+                        : const Icon(Icons.add_a_photo_outlined),
               ),
 
               const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_converter/adaptive%20widgets/adpative_filled_button.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
 import 'package:platform_converter/screens/home%20screen/view/components/new%20contact%20components/text_input_field_for_contact.dart';
 import 'package:platform_converter/utils/constant.dart';
@@ -69,10 +70,21 @@ class NewContactTab extends StatelessWidget {
                 leading: const Icon(Icons.more_time_sharp),
                 trailing: const Icon(Icons.arrow_forward_ios_rounded),
               ),
+
+        const SizedBox(
+          height: defaultPadding,
+        ),
+
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            AdaptiveFilledButton(lable: 'Clear'),
+            AdaptiveFilledButton(lable: 'Save'),
+          ],
+        ),
       ],
     );
   }
-
 }
 
 // CUPERTINO SELECT TIME
@@ -115,7 +127,6 @@ Future<void> _selectDate(BuildContext context) async {
     },
   );
   if (pickedDate != null) {}
-
 }
 
 // MATERIAL DATE PICKER
@@ -132,7 +143,8 @@ Future<void> _selectDateMaterialApp(BuildContext context) async {
 
 // MATERIAL Time PICKER
 Future<void> _selectTimeMaterialApp(BuildContext context) async {
-  TimeOfDay? pickedTime = await showTimePicker(context: context, initialTime: TimeOfDay.now());
+  TimeOfDay? pickedTime =
+      await showTimePicker(context: context, initialTime: TimeOfDay.now());
 
   if (pickedTime != null) {}
 }
