@@ -4,13 +4,21 @@ Platform converter app
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Video Preview 🎥
 
-A few resources to get you started if this is your first Flutter project:
+- Part 1
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/Zimil-Patel/platform_converter/assets/112332000/156a394a-d189-47a2-a8ad-2ff5d0f52797
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Part 2
+
+https://github.com/Zimil-Patel/platform_converter/assets/112332000/616f3882-87a5-4070-aa5f-990a4758ca86
+
+- Saving theme using shared preference
+
+https://github.com/Zimil-Patel/platform_converter/assets/112332000/de87aad3-cc33-46cc-861e-c935da36f7b6
+
+
+
+
+
