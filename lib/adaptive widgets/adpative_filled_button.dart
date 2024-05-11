@@ -24,7 +24,7 @@ class AdaptiveFilledButton extends StatelessWidget {
         ? SizedBox(
             height: 40,
             child: CupertinoButton.filled(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Text(lable),
               onPressed: () {
                 if (lable == 'Clear') {
@@ -33,15 +33,15 @@ class AdaptiveFilledButton extends StatelessWidget {
                   ScreenModel screenModel = contactProviderTrue.screenModel;
                   if (isAllDataFilled(screenModel: screenModel)) {
                     ContactModel contactModel = ContactModel(
-                      name: screenModel.txtName.text,
-                      message: screenModel.txtMessage.text,
-                      number: screenModel.txtNumber.text,
+                      name: screenModel.txtName!.text,
+                      message: screenModel.txtMessage!.text,
+                      number: screenModel.txtNumber!.text,
                       contactImg: screenModel.image!,
                       dateTime: screenModel.selectedDate!,
                       timeOfDay: screenModel.selectedTime!,
                     );
                     contactProviderFalse.addContact(contactModel);
-
+                    contactProviderFalse.clearData(contactProviderTrue);
                   } else {
                     log('Warning: Please Fill All Detail!');
                   }
@@ -62,14 +62,15 @@ class AdaptiveFilledButton extends StatelessWidget {
                 ScreenModel screenModel = contactProviderTrue.screenModel;
                 if (isAllDataFilled(screenModel: screenModel)) {
                   ContactModel contactModel = ContactModel(
-                    name: screenModel.txtName.text,
-                    message: screenModel.txtMessage.text,
-                    number: screenModel.txtNumber.text,
+                    name: screenModel.txtName!.text,
+                    message: screenModel.txtMessage!.text,
+                    number: screenModel.txtNumber!.text,
                     contactImg: screenModel.image!,
                     dateTime: screenModel.selectedDate!,
                     timeOfDay: screenModel.selectedTime!,
                   );
                   contactProviderFalse.addContact(contactModel);
+                  contactProviderFalse.clearData(contactProviderTrue);
 
                 } else {
                   log('Warning: Please Fill All Detail!');
@@ -79,18 +80,19 @@ class AdaptiveFilledButton extends StatelessWidget {
             child: Text(lable));
   }
 
-  bool isAllDataFilled({required ScreenModel screenModel}) {
-    if ((screenModel.txtName.text.isNotEmpty && screenModel.txtName.text != '') &&
-        (screenModel.txtMessage.text.isNotEmpty && screenModel.txtMessage.text != '') &&
-        (screenModel.txtNumber.text.isNotEmpty && screenModel.txtNumber.text != '') &&
-        (screenModel.selectedDate != null) &&
-        (screenModel.selectedTime != null) &&
-        (screenModel.image != null)
-    )
-    {
-      return true;
-    } else {
-      return false;
-    }
+}
+
+bool isAllDataFilled({required ScreenModel screenModel}) {
+  if ((screenModel.txtName!.text.isNotEmpty && screenModel.txtName!.text != '') &&
+      (screenModel.txtMessage!.text.isNotEmpty && screenModel.txtMessage!.text != '') &&
+      (screenModel.txtNumber!.text.isNotEmpty && screenModel.txtNumber!.text != '') &&
+      (screenModel.selectedDate != null) &&
+      (screenModel.selectedTime != null) &&
+      (screenModel.image != null)
+  )
+  {
+    return true;
+  } else {
+    return false;
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:platform_converter/screens/home%20screen/provider/contact_provider.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
+import 'package:platform_converter/screens/home%20screen/provider/profile_provider.dart';
 import 'package:platform_converter/screens/home%20screen/view/home_screen.dart';
 import 'package:platform_converter/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => ThemeProvider(),),
         ChangeNotifierProvider(create: (context) => HomeProvider(),),
         ChangeNotifierProvider(create: (context) => ContactProvider(),),
+        ChangeNotifierProvider(create: (context) => ProfileProvider(),),
       ],
       child: const PlatformConverterApp()));
 }

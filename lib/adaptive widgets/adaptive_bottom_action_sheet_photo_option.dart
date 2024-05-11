@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:platform_converter/screens/home%20screen/provider/contact_provider.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
 import 'package:platform_converter/utils/constant.dart';
 import 'package:provider/provider.dart';
 
 class AdaptiveBottomActionSheetPhotoOptions extends StatelessWidget {
-  const AdaptiveBottomActionSheetPhotoOptions({super.key});
+  const AdaptiveBottomActionSheetPhotoOptions({super.key, required this.takePhoto, required this.choosePhoto,});
+
+  final void Function() takePhoto;
+  final void Function() choosePhoto;
 
   @override
   Widget build(BuildContext context) {
     HomeProvider provider = Provider.of<HomeProvider>(context, listen: true);
-    ContactProvider contactProviderFalse =
-        Provider.of<ContactProvider>(context, listen: false);
+
     return !provider.getPlatformMode()
         ? ListView(
             shrinkWrap: true,
@@ -40,7 +41,7 @@ class AdaptiveBottomActionSheetPhotoOptions extends StatelessWidget {
                 ),
                 title: const Text('Take Photo'),
                 onTap: () {
-                  contactProviderFalse.takePhoto();
+                  takePhoto();
                   Navigator.pop(context);
                 },
               ),
@@ -58,7 +59,7 @@ class AdaptiveBottomActionSheetPhotoOptions extends StatelessWidget {
                 ),
                 title: const Text('Choose Photo'),
                 onTap: () {
-                  contactProviderFalse.choosePhoto();
+                  choosePhoto();
                   Navigator.pop(context);
                 },
               ),
@@ -103,7 +104,7 @@ class AdaptiveBottomActionSheetPhotoOptions extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  contactProviderFalse.takePhoto();
+                  takePhoto();
                   Navigator.pop(context);
                 },
               ),
@@ -113,7 +114,7 @@ class AdaptiveBottomActionSheetPhotoOptions extends StatelessWidget {
                   'Choose Photo',
                 ),
                 onPressed: () {
-                  contactProviderFalse.choosePhoto();
+                  choosePhoto();
                   Navigator.pop(context);
                 },
               ),

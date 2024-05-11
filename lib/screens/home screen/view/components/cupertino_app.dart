@@ -35,27 +35,23 @@ class IosPlatformApp extends StatelessWidget {
             method: homeProviderFalse.togglePlatformPreference,
           ),
         ),
-        child: Padding(
-          padding:
-              EdgeInsets.only(top: MediaQuery.of(context).padding.top + 50),
-          child: CupertinoTabScaffold(
-              tabBar: CupertinoTabBar(
-                onTap: (value) => homeProviderFalse.toggleTabIndex(value),
-                currentIndex: homeProviderTrue.tabIndex,
-                items: <BottomNavigationBarItem>[
-                  ...tabItemList,
+        child: CupertinoTabScaffold(
+            tabBar: CupertinoTabBar(
+              onTap: (value) => homeProviderFalse.toggleTabIndex(value),
+              currentIndex: homeProviderTrue.tabIndex,
+              items: <BottomNavigationBarItem>[
+                ...tabItemList,
+              ],
+            ),
+            tabBuilder: (context, index) {
+              return CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    child: SingleChildScrollView(child: tabList[index]),
+                  ),
                 ],
-              ),
-              tabBuilder: (context, index) {
-                return CustomScrollView(
-                  slivers: [
-                    SliverFillRemaining(
-                      child: SingleChildScrollView(child: tabList[index]),
-                    ),
-                  ],
-                );
-              }),
-        ),
+              );
+            }),
       ),
     );
   }

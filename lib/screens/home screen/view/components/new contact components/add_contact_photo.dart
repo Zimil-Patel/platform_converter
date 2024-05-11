@@ -17,7 +17,9 @@ class AddContactPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ContactProvider contactProviderTrue =
-        Provider.of<ContactProvider>(context, listen: true);
+    Provider.of<ContactProvider>(context, listen: true);
+    ContactProvider contactProviderFalse =
+    Provider.of<ContactProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.all(defaultPadding),
       child: Center(
@@ -25,15 +27,13 @@ class AddContactPhoto extends StatelessWidget {
           onPressed: () {
             homeProviderTrue.getPlatformMode()
                 ? showCupertinoModalPopup(
-                    context: context,
-                    builder: (context) =>
-                        const AdaptiveBottomActionSheetPhotoOptions(),
-                  )
+              context: context,
+              builder: (context) => AdaptiveBottomActionSheetPhotoOptions(choosePhoto: contactProviderFalse.choosePhoto, takePhoto: contactProviderFalse.takePhoto,),
+            )
                 : showModalBottomSheet(
-                    context: context,
-                    builder: (context) =>
-                        const AdaptiveBottomActionSheetPhotoOptions(),
-                  );
+              context: context,
+              builder: (context) => AdaptiveBottomActionSheetPhotoOptions(choosePhoto: contactProviderFalse.choosePhoto, takePhoto: contactProviderFalse.takePhoto,),
+            );
           },
           padding: EdgeInsets.zero,
           child: Column(
@@ -43,42 +43,44 @@ class AddContactPhoto extends StatelessWidget {
                 radius: 50,
                 backgroundColor: homeProviderTrue.getPlatformMode()
                     ? const Color(0xff9ea3b0)
-                    : Theme.of(context).colorScheme.inversePrimary,
+                    : Theme
+                    .of(context)
+                    .colorScheme
+                    .inversePrimary,
                 child: homeProviderTrue.getPlatformMode()
                     ? Container(
-                        margin: EdgeInsets.all(
-                            contactProviderTrue.screenModel.image != null
-                                ? 0
-                                : 20),
-                        decoration: contactProviderTrue.screenModel.image !=
-                                null
-                            ? BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: FileImage(
-                                      contactProviderTrue.screenModel.image!),
-                                ),
-                              )
-                            : const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: AssetImage('assets/person.png'),
-                                ),
-                              ),
-                      )
+                  margin: EdgeInsets.all(
+                      contactProviderTrue.screenModel.image != null
+                          ? 0
+                          : 20),
+                  decoration: contactProviderTrue.screenModel.image !=
+                      null
+                      ? BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: FileImage(
+                          contactProviderTrue.screenModel.image!),
+                    ),
+                  )
+                      : const BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.contain,
+                      image: AssetImage('assets/person.png'),
+                    ),
+                  ),
+                )
                     : contactProviderTrue.screenModel.image != null
-                        ? Container(
-                            decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: FileImage(
-                                  contactProviderTrue.screenModel.image!),
-                            ),
-                          ))
-                        : const Icon(Icons.add_a_photo_outlined),
+                    ? Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: FileImage(
+                            contactProviderTrue.screenModel.image!),
+                      ),
+                    ))
+                    : const Icon(Icons.add_a_photo_outlined),
               ),
 
               const SizedBox(

@@ -1,30 +1,43 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../screens/home screen/provider/contact_provider.dart';
 import '../utils/constant.dart';
 import 'adaptive_call_bottom_action_sheet.dart';
 
 class AdaptiveCallListTile extends StatelessWidget {
   const AdaptiveCallListTile({
     super.key,
+    required this.index,
   });
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     HomeProvider provider = Provider.of<HomeProvider>(context, listen: true);
-
+    ContactProvider contactProviderTrue =
+        Provider.of<ContactProvider>(context, listen: true);
+    String name = contactProviderTrue.contactList[index].name;
+    String number = contactProviderTrue.contactList[index].number;
+    String message = contactProviderTrue.contactList[index].message;
+    String time =
+        '${(contactProviderTrue.contactList[index].timeOfDay.hour % 12).toString().padLeft(2, '0')}:${contactProviderTrue.contactList[index].timeOfDay.minute.toString().padLeft(2, '0')}';
+    File image = contactProviderTrue.contactList[index].contactImg;
     return !provider.getPlatformMode()
         ? Row(
             children: [
               // CONTACT PHOTO
-              const Padding(
-                padding: EdgeInsets.only(left: 12.0),
+              Padding(
+                padding: const EdgeInsets.only(left: 12.0),
                 child: CircleAvatar(
                   radius: 30,
-                  // backgroundColor: primaryGreen.withOpacity(0.2),
-                  child: FlutterLogo(),
+                  backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+                  backgroundImage: FileImage(image),
                 ),
               ),
 
@@ -35,15 +48,22 @@ class AdaptiveCallListTile extends StatelessWidget {
                     onTap: () {
                       showModalBottomSheet(
                         context: context,
-                        builder: (context) =>
-                            const AdaptiveCallBottomActionSheet(),
+                        builder: (context) => AdaptiveCallBottomActionSheet(
+                          name: name,
+                          message: message,
+                          number: number,
+                          img: image,
+                        ),
                       );
                     },
 
                     // TITLE - CHAT PERSON NAME
-                    title: Text('Jash24', style: TextStyle(
-                      fontSize: height * 0.020,
-                    ),),
+                    title: Text(
+                      name,
+                      style: TextStyle(
+                        fontSize: height * 0.020,
+                      ),
+                    ),
 
                     // SUBTITLE
                     subtitle: Row(
@@ -63,14 +83,14 @@ class AdaptiveCallListTile extends StatelessWidget {
                     ),
 
                     // DATE AND TIME
-                    trailing: const Row(
+                    trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text('10:05'),
-                        SizedBox(
+                        Text(time),
+                        const SizedBox(
                           width: defaultPadding / 2,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.call,
                           color: Colors.green,
                         ),
@@ -86,12 +106,13 @@ class AdaptiveCallListTile extends StatelessWidget {
               Row(
                 children: [
                   // CONTACT PHOTO
-                  const Padding(
-                    padding: EdgeInsets.only(left: 12.0),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12.0),
                     child: CircleAvatar(
                       radius: 30,
-                      // backgroundColor: primaryGreen.withOpacity(0.2),
-                      child: FlutterLogo(),
+                      backgroundColor:
+                          Theme.of(context).colorScheme.inversePrimary,
+                      backgroundImage: FileImage(image),
                     ),
                   ),
 
@@ -101,14 +122,18 @@ class AdaptiveCallListTile extends StatelessWidget {
                       onTap: () {
                         showCupertinoModalPopup(
                           context: context,
-                          builder: (context) =>
-                              const AdaptiveCallBottomActionSheet(),
+                          builder: (context) => AdaptiveCallBottomActionSheet(
+                            name: name,
+                            message: message,
+                            number: number,
+                            img: image,
+                          ),
                         );
                       },
 
                       // TITLE - PERSON NAME
                       title: Text(
-                        'Jash24',
+                        name,
                         style: TextStyle(
                           fontSize: height * 0.020,
                         ),
@@ -141,7 +166,7 @@ class AdaptiveCallListTile extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            '10:05',
+                            time,
                             style: TextStyle(fontSize: height * 0.014),
                           ),
                           const SizedBox(

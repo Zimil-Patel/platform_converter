@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_converter/adaptive%20widgets/adaptive_text_field.dart';
 import 'package:platform_converter/screens/home%20screen/provider/home_provider.dart';
+import 'package:platform_converter/screens/home%20screen/provider/profile_provider.dart';
 import 'package:platform_converter/utils/constant.dart';
 import 'package:provider/provider.dart';
 
@@ -14,6 +15,10 @@ class AdaptiveProfileEditSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    ProfileProvider profileProviderFalse = Provider.of<ProfileProvider>(context, listen: false);
+    ProfileProvider profileProviderTrue = Provider.of<ProfileProvider>(context, listen: true);
+
     return Padding(
       padding: const EdgeInsets.all(defaultPadding),
       child: Column(
@@ -33,7 +38,7 @@ class AdaptiveProfileEditSection extends StatelessWidget {
             ),
           ),
           AdaptiveTextField(
-            controller: TextEditingController(),
+            controller: profileProviderTrue.txtName,
             hintText: 'Enter you name',
           ),
 
@@ -51,7 +56,7 @@ class AdaptiveProfileEditSection extends StatelessWidget {
             ),
           ),
           AdaptiveTextField(
-            controller: TextEditingController(),
+            controller: profileProviderTrue.txtBio,
             hintText: 'Enter you bio',
             textColor: Colors.grey,
           ),
@@ -63,7 +68,9 @@ class AdaptiveProfileEditSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CupertinoButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    profileProviderFalse.clearData();
+                  },
                   child: Text(
                     'CLEAR',
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
