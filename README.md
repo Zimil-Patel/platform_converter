@@ -16,7 +16,9 @@ https://github.com/Zimil-Patel/platform_converter/assets/112332000/616f3882-87a5
 
 - Saving theme using shared preference
 
-https://github.com/Zimil-Patel/platform_converter/assets/112332000/de87aad3-cc33-46cc-861e-c935da36f7b6
+https://github.com/Zimil-Patel/platform_converter/assets/112332000/9ced77c0-6dfd-46ec-b036-5a6fb18e032f
+
+
 
 
 
