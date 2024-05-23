@@ -50,6 +50,20 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## App Screenshots
 
+### Android(Material App View)
+
+<div align="left">
+  
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img1-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img2-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img3-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img4-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img5-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img6-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img7-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img8-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img9-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img10-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img11-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+
 ## Video Preview 🎥
 
 - Part 1
