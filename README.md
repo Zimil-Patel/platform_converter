@@ -50,7 +50,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 ## App Screenshots
 
-### Android(Material App View)
+### Android (Material App View)
 
 <div align="left">
   
@@ -61,6 +61,20 @@ Contributions are welcome! Please fork the repository and create a pull request 
 <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img7-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img8-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img9-portrait.png" height = 510 width = 240>
 
 <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img10-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupAndroid/img11-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+
+### IOS (Cupertino App View)
+
+<div align="left">
+  
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img1-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img2-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img3-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img4-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img5-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img6-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img7-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img8-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img9-portrait.png" height = 510 width = 240>
+
+<img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img10-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp; <img src= "https://github.com/Zimil-Patel/platform_converter/blob/main/mockupIos/img11-portrait.png" height = 510 width = 240> &nbsp;&nbsp;&nbsp;&nbsp;
 
 </div>
 
